@@ -162,10 +162,32 @@
     </div>
 
     <footer>
-      <p>© 2024 Carlo A. Mussolini</p>
+      <p>© 2024 Carlo A. Mussolini | Website by Carlo</p>
     </footer>
 
     <script>
+      // Hey dont look here! This is a secret!
+      let currentYear = new Date().getFullYear();
+      let easterEggCount = 0;
+      let totalEasterEggs = 1;
+
+      document.querySelector("footer p").innerHTML += `<br>
+      Pssst, you've found ${easterEggCount} out of the ${totalEasterEggs}
+      Easter eggs on this page!`;
+
+      function updateEasterEggCount() {
+        easterEggCount++;
+        if (easterEggCount === totalEasterEggs) {
+          document.querySelector("footer p").innerHTML =
+            "© 2024 Carlo A. Mussolini | Website by Carlo" +
+            "<br>🎉 Congratulations! You've found all the Easter eggs on this page! 🎉";
+        } else {
+          document.querySelector("footer p").innerHTML =
+            document.querySelector("footer p").innerHTML.split("\n")[0] +
+            `Pssst, you've found ${easterEggCount} out of the ${totalEasterEggs} Easter eggs on this page!`;
+        }
+      }
+
       function showTab(tabId) {
         const tabs = document.querySelectorAll(".tab-content");
         tabs.forEach((tab) => tab.classList.remove("active"));
@@ -178,11 +200,12 @@
           .classList.add("active");
       }
       function increaseSize(element) {
-        element.style.transform = "scale(1.1)"; // Increase size by 10%
+        element.style.transform = "scale(1.2)"; // Increase size by 10%
         element.style.transition = "transform 0.2s ease"; // Smooth transition
       }
       function returnSize(element) {
         element.style.transform = "scale(1)"; // Reset size to original
+        element.style.transition = "transform 0.1s ease"; // Smooth transition
       }
       let clickCount = 0;
       let clickTimer;
@@ -210,6 +233,7 @@
             clearTimeout(clickTimer); // Clear the timer since we reached the click threshold
             transformed = true;
             returnSize(element);
+            updateEasterEggCount();
           }
         }
       }
