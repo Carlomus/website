@@ -1,7 +1,21 @@
-// Hey dont look here! This is a secret!
-let currentYear = new Date().getFullYear();
+function showTab(tabId) {
+  const tabs = document.querySelectorAll(".tab-content");
+  tabs.forEach((tab) => tab.classList.remove("active"));
+  document.getElementById(tabId).classList.add("active");
+
+  const menuLinks = document.querySelectorAll(".main-menu a");
+  menuLinks.forEach((link) => link.classList.remove("active"));
+  document
+    .querySelector(`.main-menu a[onclick="showTab('${tabId}')"]`)
+    .classList.add("active");
+}
+
+// Hey dont look here! This is a secret! 🤫
 let easterEggCount = 0;
 let totalEasterEggs = 1;
+let clickCount = 0;
+let clickTimer;
+let transformed = false;
 
 document.querySelector("footer p").innerHTML += `<br>
 Pssst, you've found ${easterEggCount} out of the ${totalEasterEggs}
@@ -20,28 +34,14 @@ function updateEasterEggCount() {
   }
 }
 
-function showTab(tabId) {
-  const tabs = document.querySelectorAll(".tab-content");
-  tabs.forEach((tab) => tab.classList.remove("active"));
-  document.getElementById(tabId).classList.add("active");
-
-  const menuLinks = document.querySelectorAll(".main-menu a");
-  menuLinks.forEach((link) => link.classList.remove("active"));
-  document
-    .querySelector(`.main-menu a[onclick="showTab('${tabId}')"]`)
-    .classList.add("active");
-}
 function increaseSize(element) {
   element.style.transform = "scale(1.2)"; // Increase size by 10%
   element.style.transition = "transform 0.2s ease"; // Smooth transition
 }
-function returnSize(element) {
+function resetSize(element) {
   element.style.transform = "scale(1)"; // Reset size to original
   element.style.transition = "transform 0.1s ease"; // Smooth transition
 }
-let clickCount = 0;
-let clickTimer;
-let transformed = false;
 
 function boom(element) {
   if (transformed === false) {
@@ -50,21 +50,21 @@ function boom(element) {
     if (clickCount === 1) {
       // Start a 2-second timer on the first click
       clickTimer = setTimeout(() => {
-        returnSize(element);
+        resetSize(element);
         clickCount = 0; // Reset count after 1 second
       }, 1000);
     }
-    if (clickCount > 1) {
+    if (clickCount === 2) {
       increaseSize(element);
     }
 
     if (clickCount === 5) {
       // Change logo to logo2 after 5 clicks
+      clearTimeout(clickTimer); // Clear the timer since we reached the click threshold
       document.getElementById("logo").src = "logo2.png";
       clickCount = 0; // Reset count after changing the logo
-      clearTimeout(clickTimer); // Clear the timer since we reached the click threshold
       transformed = true;
-      returnSize(element);
+      resetSize(element);
       updateEasterEggCount();
     }
   }
