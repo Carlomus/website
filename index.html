@@ -11,21 +11,21 @@
     <h1>Carlo A. Mussolini</h1>
     <p>Machine Learning Research Scientist</p>
     <ul class="main-menu">
-      <li><a href="#home" class="active">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#" onclick="showTab('home')" class="active">Home</a></li>
+      <li><a href="#" onclick="showTab('about')">About</a></li>
+      <li><a href="#" onclick="showTab('projects')">Projects</a></li>
+      <li><a href="#" onclick="showTab('research')">Research</a></li>
+      <li><a href="#" onclick="showTab('contact')">Contact</a></li>
     </ul>
   </header>
 
   <div id="content">
-    <section id="home">
+    <section id="home" class="tab-content active">
       <h2>Welcome to My Portfolio</h2>
       <p>Hi, I’m Carlo A. Mussolini, a Machine Learning Research Scientist with a background in particle and accelerator physics...</p>
     </section>
 
-    <section id="about">
+    <section id="about" class="tab-content">
       <h2>About Me</h2>
       <p>With a PhD in Particle and Accelerator Physics from the University of Oxford and CERN...</p>
       <h3>Education</h3>
@@ -40,7 +40,7 @@
       </ul>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="tab-content">
       <h2>Projects</h2>
       <div class="project">
         <h3>Machine Learning Projects</h3>
@@ -52,7 +52,7 @@
       </div>
     </section>
 
-    <section id="research">
+    <section id="research" class="tab-content">
       <h2>Research & Publications</h2>
       <ul>
         <li>Published over 10 papers on experimental physics and machine learning applications...</li>
@@ -60,7 +60,7 @@
       </ul>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="tab-content">
       <h2>Contact</h2>
       <p>Feel free to reach out to me at <a href="mailto:carlomus@gmail.com">carlomus@gmail.com</a> or connect with me on <a href="https://www.linkedin.com/in/carlo-mussolini/">LinkedIn</a>.</p>
       <p>View my work on GitHub: <a href="https://github.com/Carlomus">GitHub Profile</a>.</p>
@@ -70,5 +70,17 @@
   <footer>
     <p>© 2024 Carlo A. Mussolini</p>
   </footer>
+
+  <script>
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+
+      const menuLinks = document.querySelectorAll('.main-menu a');
+      menuLinks.forEach(link => link.classList.remove('active'));
+      document.querySelector(`.main-menu a[onclick="showTab('${tabId}')"]`).classList.add('active');
+    }
+  </script>
 </body>
 </html>
