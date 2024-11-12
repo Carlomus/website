@@ -15,7 +15,10 @@ const totalEasterEggs = 3;
 let easterEggCount = 0;
 let clickCount = 0;
 let clickTimer;
-let transformed = false;
+
+let exploded = false;
+let carlod = false;
+let xmasd = false;
 
 document.querySelector("footer p").innerHTML += `<br>
 Pssst, you've found ${easterEggCount} out of ${totalEasterEggs}
@@ -27,9 +30,11 @@ function updateEasterEggCount() {
     document.querySelector("footer p").innerHTML = `Website by Carlo | © 2024
       <br>🎉 Congratulations! You've found all the Easter eggs on this page! 🎉`;
   } else {
-    document.querySelector("footer p").innerHTML =
-      document.querySelector("footer p").innerHTML.split("\n")[0] +
-      `Pssst, you've found ${easterEggCount} out of the ${totalEasterEggs} Easter eggs on this page!`;
+    document.querySelector(
+      "footer p"
+    ).innerHTML = `Website by Carlo | © 2024<br>
+      Pssst, you've found ${easterEggCount} out of ${totalEasterEggs}
+      Easter eggs on this page!`;
   }
 }
 
@@ -44,7 +49,7 @@ function resetSize(element) {
 }
 
 function boom(element) {
-  if (transformed === false) {
+  if (exploded === false) {
     clickCount++;
 
     if (clickCount === 1) {
@@ -54,7 +59,7 @@ function boom(element) {
         clickCount = 0; // Reset count after 1 second
       }, 1000);
     }
-    if (clickCount === 2) {
+    if (clickCount === 1) {
       increaseSize(element);
     }
 
@@ -63,14 +68,14 @@ function boom(element) {
       clearTimeout(clickTimer); // Clear the timer since we reached the click threshold
       document.getElementById("logo").src = "logo2.png";
       clickCount = 0; // Reset count after changing the logo
-      transformed = true;
+      exploded = true;
       resetSize(element);
       updateEasterEggCount();
     }
   }
 }
 
-// Easter egg 2
+// Easter egg 2 and 3
 document.querySelectorAll("#main-menu li").forEach((item) => {
   item.draggable = true;
   item.addEventListener("dragstart", dragStart);
@@ -109,23 +114,27 @@ function drop(event) {
         targetItem.insertAdjacentElement("beforebegin", draggedItem);
       }
 
-      checkCARLO(); // Check the order after each drop
+      checkOrders(); // Check the order after each drop
     }
   }
 }
 
-function checkCARLO() {
+function checkOrders() {
   const menu = document.getElementById("main-menu");
   const order = Array.from(menu.children)
     .map((item) => item.id)
     .join("");
 
   if (order === "CARLO") {
-    triggerSpecialAction();
+    if (carlod === false) {
+      triggerCarloAction();
+    }
+  } else if (order === "CAROL") {
+    triggerXmasAction();
   }
 }
 
-function triggerSpecialAction() {
+function triggerCarloAction() {
   alert("You’ve unlocked the CARLO Easter Egg!");
 
   // Select each list item by ID and change the content
@@ -141,75 +150,70 @@ function triggerSpecialAction() {
     item.style.color = "gold";
     item.style.fontWeight = "bold";
   });
-
-  updateEasterEggCount();
+  if (carlod === false) {
+    updateEasterEggCount();
+    carlod = true;
+  }
 }
 
-// Easter egg 3
-// Konami Code sequence
-const konamiCode = [
-  "ArrowUp",
-  "ArrowUp",
-  "ArrowDown",
-  "ArrowDown",
-  "ArrowLeft",
-  "ArrowRight",
-  "ArrowLeft",
-  "ArrowRight",
-  "b",
-  "a",
-];
-let konamiIndex = 0;
+function triggerXmasAction() {
+  const snowflakeInterval = setInterval(createSnowflake, 100); // Create a snowflake every 100ms
 
-// Listen for keydown events
-document.addEventListener("keydown", function (event) {
-  // Check if the key matches the current step in the Konami Code
-  if (event.key === konamiCode[konamiIndex]) {
-    konamiIndex++;
-
-    // If the full Konami Code is entered, trigger the DOOM function
-    if (konamiIndex === konamiCode.length) {
-      runDoom();
-      konamiIndex = 0; // Reset the index for the next time
-    }
-  } else {
-    konamiIndex = 0; // Reset if the sequence breaks
+  // Stop creating new snowflakes after 10 seconds
+  setTimeout(() => {
+    clearInterval(snowflakeInterval);
+    removeSnowflakes(); // Remove remaining snowflakes after stopping
+  }, 10000);
+  if (!xmasd) {
+    updateEasterEggCount();
+    xmasd = true;
   }
-});
+}
 
-function runDoom() {
-  alert("Welcome to DOOM! The Konami Code has been activated.");
+function triggerXmasAction() {
+  const snowflakeInterval = setInterval(createSnowflake, 100); // Create a snowflake every 100ms
 
-  // Create an iframe to load DOOM
-  const doomContainer = document.createElement("div");
-  doomContainer.style.position = "fixed";
-  doomContainer.style.top = "0";
-  doomContainer.style.left = "0";
-  doomContainer.style.width = "100%";
-  doomContainer.style.height = "100%";
-  doomContainer.style.backgroundColor = "black";
-  doomContainer.style.zIndex = "9999";
+  // Stop creating new snowflakes after 10 seconds
+  setTimeout(() => {
+    clearInterval(snowflakeInterval);
+    removeSnowflakes(); // Remove remaining snowflakes after stopping
+  }, 10000);
 
-  // Add a close button
-  const closeButton = document.createElement("button");
-  closeButton.textContent = "Close DOOM";
-  closeButton.style.position = "absolute";
-  closeButton.style.top = "10px";
-  closeButton.style.right = "10px";
-  closeButton.style.zIndex = "10000";
-  closeButton.onclick = () => doomContainer.remove();
+  if (!xmasd) {
+    updateEasterEggCount();
+    xmasd = true;
+  }
+}
 
-  // Add the DOOM iframe
-  const doomFrame = document.createElement("iframe");
-  doomFrame.src = "https://js-dos.com/games/doom.exe.html"; // JS-DOS DOOM port link
-  doomFrame.style.width = "100%";
-  doomFrame.style.height = "100%";
-  doomFrame.style.border = "none";
+function triggerXmasAction() {
+  const snowflakeInterval = setInterval(createSnowflake, 100); // Create a snowflake every 100ms
 
-  // Append everything
-  doomContainer.appendChild(closeButton);
-  doomContainer.appendChild(doomFrame);
-  document.body.appendChild(doomContainer);
+  // Stop creating new snowflakes after 10 seconds
+  setTimeout(() => {
+    clearInterval(snowflakeInterval);
+  }, 10000);
 
-  updateEasterEggCount();
+  if (!xmasd) {
+    updateEasterEggCount();
+    xmasd = true;
+  }
+}
+
+function createSnowflake() {
+  const snowflake = document.createElement("div");
+  snowflake.classList.add("snowflake");
+  snowflake.textContent = "❄"; // Snowflake symbol
+
+  // Set random position and size for each snowflake
+  snowflake.style.left = Math.random() * 100 + "vw"; // Random horizontal position
+  snowflake.style.fontSize = Math.random() * 10 + 13 + "px"; // Random size
+
+  // Randomize the animation duration for a natural effect
+  const fallDuration = Math.random() * 5 + 5 + "s"; // Fall duration between 5-10 seconds
+  snowflake.style.animationDuration = fallDuration;
+
+  document.body.appendChild(snowflake);
+
+  // Remove snowflake after it falls to avoid build-up
+  setTimeout(() => snowflake.remove(), parseFloat(fallDuration) * 2000);
 }

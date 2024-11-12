@@ -137,3 +137,26 @@ html {
   background: url(background.jpg) center center no-repeat fixed;
   background-size: cover;
 }
+
+.snowflake {
+  position: fixed;
+  top: -30px; /* Start just above the viewport */
+  color: white;
+  opacity: 0.85;
+  pointer-events: none; /* Allow clicks to pass through */
+  z-index: 1000;
+  animation: fallAndSway linear infinite;
+}
+
+/* Updated fall and sway animation */
+@keyframes fallAndSway {
+  0% {
+    transform: translateX(0px) translateY(-30px); /* Start at the top */
+  }
+  50% {
+    transform: translateX(25px) translateY(50vh); /* Fall halfway with a sway to the right */
+  }
+  100% {
+    transform: translateX(-25px) translateY(100vh); /* Reach the bottom with a sway to the left */
+  }
+}
