@@ -137,7 +137,7 @@ ul.main-menu li a.active {
 
 /* Background Image */
 html {
-  background: url(background.jpg) center center no-repeat fixed;
+  background: url(media/background.jpg) center center no-repeat fixed;
   background-size: cover;
 }
 
