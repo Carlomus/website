@@ -4,12 +4,13 @@ html {
 }
 body {
   font-size: 1.5em;
-  line-height: 1.6;
+  line-height: 1.4;
   font-weight: 400;
   font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,
     sans-serif;
   color: #cccccc;
   background-color: #aa262600;
+  text-align: justify;
 }
 
 /* Links */
@@ -18,7 +19,13 @@ a {
   text-decoration: none;
   color: #de6a40;
 }
+#content .content-container a:hover {
+  text-decoration: underline;
+}
 
+strong {
+  font-weight: bold;
+}
 /* Headings */
 h1,
 h2,
@@ -80,13 +87,9 @@ header {
   transition: transform 0.3s ease;
 }
 
-logo:hover {
-  transform: scale(1.1); /* Increases the size by 10% on hover */
-}
-
 /* Make content take up available space, pushing footer down */
 #content {
-  text-align: left;
+  text-align: justify;
   padding: 15px;
   padding-top: 0px;
   flex: 1;
@@ -137,25 +140,43 @@ html {
   background: url(background.jpg) center center no-repeat fixed;
   background-size: cover;
 }
+
 .tab-content {
-  position: relative;
-  padding-top: 20px; /* Adds some padding so text doesn’t overlap the image */
+  margin-bottom: 2rem;
+}
+
+.content-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px; /* Space between text and image */
+}
+
+.text-content {
+  flex: 0.95; /* Takes up available space for the text */
 }
 
 .image-container {
-  position: absolute;
-  top: 0;
-  right: 0;
+  display: flex;
+  flex-direction: column; /* Stack image and caption vertically */
+  align-items: center; /* Center the image and caption horizontally */
+  border-radius: 8px;
+  background-color: #ffffff;
+  align-self: center; /* Center the image and caption horizontally */
+  margin-top: -50px;
+  padding-bottom: 10px;
 }
 
 .tab-image {
-  width: 100%; /* Full width of the container */
-  max-width: 500px; /* Maximum width to keep images manageable */
+  width: 100%;
+  max-width: 500px; /* Set max width for image */
   height: auto; /* Maintain aspect ratio */
-  margin: 10px auto; /* Center and add space around the image */
-  display: block;
-  background-color: #ffffff;
-  border-radius: 8px;
+}
+
+.caption {
+  font-size: 1.2rem; /* Adjust font size for caption */
+  color: #323232; /* Color for caption text */
+  text-align: center; /* Center caption under the image */
+  margin-top: -15px;
 }
 
 .snowflake {
