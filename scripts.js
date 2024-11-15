@@ -66,7 +66,7 @@ function boom(element) {
     if (clickCount === 5) {
       // Change logo to logo2 after 5 clicks
       clearTimeout(clickTimer); // Clear the timer since we reached the click threshold
-      document.getElementById("logo").src = "logo2.png";
+      document.getElementById("logo").src = "media/logo2.png";
       clickCount = 0; // Reset count after changing the logo
       exploded = true;
       resetSize(element);
