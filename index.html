@@ -24,22 +24,20 @@
         <li id="O">
           <a href="#" onclick="showTab('overview')" class="active">Overview</a>
         </li>
-        <li id="C">
-          <a href="#" onclick="showTab('code')">Code</a>
-        </li>
-        <li id="R">
-          <a href="#" onclick="showTab('research')">Research</a>
-        </li>
-        <li id="A">
-          <a href="#" onclick="showTab('articles')">Articles</a>
-        </li>
-        <li id="L">
-          <a href="#" onclick="showTab('links')">Links</a>
-        </li>
+        <li id="C"><a href="#" onclick="showTab('code')">Code</a></li>
+        <li id="R"><a href="#" onclick="showTab('research')">Research</a></li>
+        <li id="A"><a href="#" onclick="showTab('articles')">Articles</a></li>
+        <li id="L"><a href="#" onclick="showTab('links')">Links</a></li>
       </ul>
 
+      <!-- Overview Tab -->
       <section id="overview" class="tab-content active">
         <h2>Welcome to My Website</h2>
+        <img
+          src="overview-placeholder.jpg"
+          alt="Overview Image"
+          class="tab-image"
+        />
         <p>
           Hi, I’m Carlo, a Machine Learning Research Scientist currently working
           at Fractile, where I’m pushing the boundaries of LLM optimization on
@@ -55,80 +53,139 @@
           working mainly at CERN, where I designed a low-energy beamline for the
           NA61/SHINE experiment. This project required a blend of simulation,
           data analysis, and collaboration, skills I now apply to my work in AI.
-          Alongside research, I also enjoy mentoring.
         </p>
         <p>
           My interests bridge generative AI, cross-modal AI models, quantization
           and exotic number formats for efficient model deployment. But let's be
-          honest, as long as there are hard problems to solve, anything can be
+          honest, as long as there are hard problems to solve, everything is
           interesting!
         </p>
-        <p>
-          On this site, you’ll find insights into my projects, research, and
-          career path. Dive in to explore!
-        </p>
-        <p>
-          When I'm not working I'm usually playing chess (aiming for 2000, only
-          100 points to go!), bouldering, or cooking. In the winter I enjoy
-          skiing, and in the summer I love scuba diving!.
-        </p>
       </section>
 
+      <!-- Research Tab -->
       <section id="research" class="tab-content">
         <h2>Research</h2>
-        Working at an incredibly fast moving start up, it is hard to find a moment to breathe, let alone publish articles, but here are some of the projects I am currently working on:
-          <p>
-            <ul>
-              <li><strong>Optimization of Large Language Models (LLMs):</strong> Developing methods to enhance the performance of LLMs, including quantization, sparsity, exotic number formats, and generative AI optimizations tailored to next-gen hardware.</li>
-              <li><strong>Efficient Model Deployment:</strong> Designing scalable and efficient deployment frameworks for AI models, focusing on reducing energy consumption and computational overhead, while maintaining performance in diverse applications.</li>
-              <li><strong>Predictive Maintenance with AI:</strong> Leveraging GNNs and other AI models to anticipate and prevent hardware failures in particle accelerators, contributing to improved uptime and reliability in high-energy physics experiments.</li>
-            </ul>
-          </p>
+        <img
+          src="research-placeholder.jpg"
+          alt="Research Image"
+          class="tab-image"
+        />
+        <p>
+          Working at an incredibly fast-moving startup, it is hard to find a
+          moment to breathe, let alone publish articles, but here are some of
+          the projects I am currently working on:
+        </p>
+        <ul>
+          <li>
+            <strong>Optimization of Large Language Models (LLMs):</strong>
+            Developing methods to enhance LLM performance, including
+            quantization, sparsity, and exotic number formats tailored to
+            next-gen hardware.
+          </li>
+          <li>
+            <strong>Efficient Model Deployment:</strong> Designing scalable
+            frameworks for AI model deployment, reducing energy consumption
+            while maintaining high performance.
+          </li>
+          <li>
+            <strong>Predictive Maintenance with AI:</strong> Leveraging GNNs and
+            AI models to anticipate and prevent hardware failures in particle
+            accelerators, improving uptime and reliability.
+          </li>
+        </ul>
       </section>
 
+      <!-- Code Tab -->
       <section id="code" class="tab-content">
         <h2>Code</h2>
+        <img src="code-placeholder.jpg" alt="Code Image" class="tab-image" />
         <p>
           Fun old code will be here. I will be sharing some of my projects
           and...
         </p>
       </section>
 
+      <!-- Articles Tab -->
       <section id="articles" class="tab-content">
         <h2>Articles</h2>
+        <img src="FullPTC_0.03.png" alt="PTC Image" class="tab-image" />
         <p>
-          And here are a selection of my accelerator physics papers, including my Ph.D. thesis <a href="https://cds.cern.ch/record/2911289?ln=en"target="_blank">"Design of a New Low-Energy Beamline in CERN’s North Area for the NA61/SHINE Experiment"</a>:
-          <p>
-            <ul>
-              <li><strong>Future Neutrino Beam Studies Under the Framework of Physics Beyond Colliders</strong> JACoW IPAC2022 (2022)</li>
-              <li><strong>Design of a Very Low Energy Beamline for NA61/SHINE</strong> JACoW IPAC2022 (2022) </li>
-              <li><strong>Physics Beyond Colliders: The Conventional Beams Working Group</strong> JACoW IPAC2022 (2022) </li>
-              <li><strong>A Design for a 3 TeV Rapid Cycling Synchrotron for Muon Acceleration in the SPS Tunnel</strong> JACoW IPAC2022 (2021) </li>
-              <li><strong>Kaon beam simulations employing conventional hadron beam concepts and the RF separation technique at the CERN M2 beamline for the future AMBER experiment</strong> JPhys.Conf.Ser. 2687 (2024) </li>
-            </ul>
-          </p>
+          Here are a selection of my accelerator physics papers, including my
+          Ph.D. thesis: <br />
+          <a href="https://cds.cern.ch/record/2911289?ln=en" target="_blank"
+            >"Design of a New Low-Energy Beamline in CERN’s North Area for the
+            NA61/SHINE Experiment"</a
+          >:
         </p>
-          I have supervised several Master's students in their research projects, including:
-          <p>
-            <ul>
-              <strong>Input-Dependent Movement Pruning for Efficient Transformer Inference</strong> Peixin Li, MSc Thesis, 2023, University of Oxford, UK. Distinction.
-              <strong></strong> Yujie Wang, BSc Thesis, 2022, Tsinghua University, China. Honors.
-            </ul>
-          </p>
+        and a few of my recent conference papers (<a
+          href="https://inspirehep.net/authors/2019580"
+          target="_blank"
+          >many more here</a
+        >):
+        <ul>
+          <li>
+            <strong>Design of a Very Low Energy Beamline for NA61/SHINE</strong>
+            - JACoW IPAC2022 (2022)
+          </li>
+          <li>
+            <strong
+              >Physics Beyond Colliders: The Conventional Beams Working
+              Group</strong
+            >
+            - JACoW IPAC2022 (2022)
+          </li>
+          <li>
+            <strong
+              >Future Neutrino Beam Studies Under the Framework of Physics
+              Beyond Colliders</strong
+            >
+            - JACoW IPAC2022 (2022)
+          </li>
+          <li>
+            <strong
+              >Measurement of cosmic muons angular distribution in Abu Dhabi at
+              sea level</strong
+            >
+            - Nucl.Instrum.Meth.A 936 (2019)
+          </li>
+          <li>
+            <strong
+              >M2 Experimental Beamline Optics Studies for Next Generation Muon
+              Beam Experiments at CERN</strong
+            >
+            - JACoW IPAC2021 (2021)
+          </li>
+        </ul>
+        <p>
+          I have supervised several Master’s students in their research
+          projects, including:
+        </p>
+        <ul>
+          <li>
+            <strong
+              >Input-Dependent Movement Pruning for Efficient Transformer
+              Inference</strong
+            >
+            - Peixin Li, MSc Thesis, 2023, University of Oxford, UK.
+          </li>
+        </ul>
       </section>
 
+      <!-- Links Tab -->
       <section id="links" class="tab-content">
         <h2>Links</h2>
         <p>
-          I'm always happy to discussing research ideas, collaborative projects,
-          and opportunities.<br />
-          You can view my code (including this website's source!) on my
-          <a href="https://github.com/Carlomus"target="_blank">GitHub profile</a>, connect with
-          me professionally on 
-          <a href="https://www.linkedin.com/in/carlo-mussolini/"target="_blank">LinkedIn</a>,
-          or reach out directly via email at
-          <a href="mailto:carlomus@gmail.com"target="_blank">carlomus@gmail.com</a>. Looking
-          forward to connecting!
+          I'm always happy to discuss research ideas and collaborative
+          projects.<br />
+          View my code on
+          <a href="https://github.com/Carlomus" target="_blank">GitHub</a>,
+          connect with me on
+          <a href="https://www.linkedin.com/in/carlo-mussolini/" target="_blank"
+            >LinkedIn</a
+          >, or email me at
+          <a href="mailto:carlomus@gmail.com" target="_blank"
+            >carlomus@gmail.com</a
+          >. Looking forward to connecting!
         </p>
       </section>
     </div>
